@@ -1,5 +1,5 @@
-import core from "@actions/core"
-import github from "@actions/github"
+import * as core from "@actions/core"
+import * as github from "@actions/github"
 import {execFile} from "node:child_process"
 import util from "node:util"
 
@@ -79,7 +79,7 @@ const mergeFlags = {
       const dependabotPRs = prs.filter(pr => pr.user.login === "dependabot[bot]")
       core.info(`Found ${dependabotPRs.length} open Dependabot PRs in ${repoOwner}/${repo}`)
 
-      // Comment on each PR
+      // Enable auto-merge on each PR
       for(const pr of dependabotPRs) {
         core.info(`→ PR #${pr.number}: ${pr.title}`)
 
